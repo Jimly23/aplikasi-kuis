@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { joinKuis } from "../api/kuis";
 import Cookies from 'js-cookie'
 import { getUserById } from "../api/user";
-import landing from '../assets/landing.png'
+import landing from '../assets/logo.jpg'
 
 const PopupJoinKuis = ({setIsJoin}) => {
   const navigate = useNavigate();
@@ -107,7 +107,7 @@ const Home = () => {
             </div>
           </div>
           <div>
-            <img src={landing} className="w-[400px] mx-auto" />
+            <img src={landing} className="w-[400px] mx-auto rounded-full shadow-lg border-2 border-violet-600" />
           </div>
         </div>
       </section>
