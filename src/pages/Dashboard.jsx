@@ -11,11 +11,12 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [isGuru, setIsGuru] = useState(false);
   const [allKuis, setAllKuis] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const [popupBuatKuis, setPopupBuatKuis] = useState(false);
 
   useEffect(()=>{
     getAuthToken();
-  }, [])
+  }, [refresh])
 
   const getAuthToken = async () => {
     const token = Cookies.get('authToken');
@@ -57,7 +58,7 @@ const Dashboard = () => {
       <div className="bg-slate-100 min-h-[95vh] mt-16">
         <div className="max-w-[1240px] p-4 mx-auto">
           {popupBuatKuis ?
-            <BuatKuis setPopup={setPopupBuatKuis}/>
+            <BuatKuis refresh={refresh} setPopup={setPopupBuatKuis}/>
             :
             <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-2'>
               {allKuis.map((kuis) => (

@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { getUserById } from '../api/user';
 import { createKuis } from '../api/kuis';
 
-const BuatKuis = ({setPopup}) => {
+const BuatKuis = ({refresh, setPopup}) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [kuisBaru, setKuisBaru] = useState("");
@@ -35,7 +35,8 @@ const BuatKuis = ({setPopup}) => {
     await createKuis(kuisBaru);
     alert("Berhasil membuat kuis");
     setPopup(false);
-    window.location.reload();
+    refresh((prev) => !prev);
+
   }
 
   return (
