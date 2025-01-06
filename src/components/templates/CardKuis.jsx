@@ -10,7 +10,7 @@ const CardKuis = ({idKuis,judul}) => {
 
   const handleDelete = async () => {
     await deleteKuis(idKuis);
-    window.location.reload();
+    navigate('/dashboard');
   }
   return (
     <div className=" p-6 bg-white border border-gray-200 rounded-lg relative">
