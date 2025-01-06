@@ -11,7 +11,7 @@ const Navbar = () => {
     navigate('/login');
   }
   return (
-    <div className="fixed left-0 right-0 top-0 bg-white z-10 px-8">
+    <div className="fixed left-0 right-0 top-0 bg-violet-60 z-10 px-8 border-b">
       <div className="max-w-[1300px] px-8 mx-auto flex justify-between items-center py-4">
         <div className="logo text-3xl font-bold relative">
           <span className="text-violet-600">KuisKu</span>

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { joinKuis } from "../api/kuis";
 import Cookies from 'js-cookie'
 import { getUserById } from "../api/user";
+import landing from '../assets/landing.png'
 
 const PopupJoinKuis = ({setIsJoin}) => {
   const navigate = useNavigate();
@@ -87,21 +88,26 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <section className="bg-violet-50 h-screen flex items-center">
-        <div className="pb-36 pt-48 px-4 mx-auto max-w-screen-xl text-center">
-          <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-slate-700 md:text-4xl lg:text-5xl dark:text-white">
-            Selamat Datang di KuisKu
-          </h1>
-          <p className="mb-8 font-medium text-slate-700 lg:text-xl sm:px-16 lg:px-48 ">
-          KuisKu: Aplikasi kuis interaktif untuk guru dan siswa. Membantu pembelajaran lebih seru dengan fitur pembuatan kuis, penilaian otomatis, dan analisis hasil untuk meningkatkan proses belajar mengajar.
-          </p>
-          <div className="flex justify-center gap-x-2">
-            {user?.role == 'siswa' ? 
-            <></>
-            :
-            <button onClick={handleBuatKuis} className='px-4 py-1 border rounded bg-violet-600 text-white text-sm font-medium'>Buat Kuis</button>
-            }
-            <button onClick={handleJoinKuis} className='px-4 py-1 border border-violet-600 rounded bg-white text-violet-600 text-sm font-medium'>Join Kuis</button>
+      <section className="max-w-[1300px] mx-auto h-screen flex items-center">
+        <div className="grid md:grid-cols-2 items-center gap-3">
+          <div className="pb-36 pt-48 px-4 mx-auto max-w-screen-xl text-start">
+            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-slate-700 md:text-4xl lg:text-5xl dark:text-white">
+              Selamat Datang di KuisKu
+            </h1>
+            <p className="mb-8 font-medium text-slate-700 lg:text-xl">
+            KuisKu: Aplikasi kuis interaktif untuk guru dan siswa. Membantu pembelajaran lebih seru dengan fitur pembuatan kuis, penilaian otomatis, dan analisis hasil untuk meningkatkan proses belajar mengajar.
+            </p>
+            <div className="flex gap-x-2">
+              {user?.role == 'siswa' ? 
+              <></>
+              :
+              <button onClick={handleBuatKuis} className='px-4 py-1 border rounded bg-violet-600 text-white text-sm font-medium'>Buat Kuis</button>
+              }
+              <button onClick={handleJoinKuis} className='px-4 py-1 border border-violet-600 rounded bg-white text-violet-600 text-sm font-medium'>Join Kuis</button>
+            </div>
+          </div>
+          <div>
+            <img src={landing} className="w-[400px] mx-auto" />
           </div>
         </div>
       </section>

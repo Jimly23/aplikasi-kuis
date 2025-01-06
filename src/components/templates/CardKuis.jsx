@@ -9,6 +9,7 @@ const CardKuis = ({refresh, idKuis,judul}) => {
   }
 
   const handleDelete = async () => {
+    alert("Apakah anda yakin ingin menghapus kuis ini?");
     await deleteKuis(idKuis);
     refresh((prev) => !prev);
   }
