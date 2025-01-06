@@ -58,12 +58,12 @@ const Dashboard = () => {
       <div className="bg-slate-100 min-h-[95vh] mt-16">
         <div className="max-w-[1240px] p-4 mx-auto">
           {popupBuatKuis ?
-            <BuatKuis refresh={refresh} setPopup={setPopupBuatKuis}/>
+            <BuatKuis refresh={setRefresh} setPopup={setPopupBuatKuis}/>
             :
             <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-2'>
               {allKuis.map((kuis) => (
                 <div key={kuis.id}>
-                  <CardKuis idKuis={kuis.id} judul={kuis.title}/>  
+                  <CardKuis refresh={setRefresh} idKuis={kuis.id} judul={kuis.title}/>  
                 </div>
               ))}
             </div>

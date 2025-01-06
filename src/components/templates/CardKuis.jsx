@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteKuis } from '../../api/kuis';
 
-const CardKuis = ({idKuis,judul}) => {
+const CardKuis = ({refresh, idKuis,judul}) => {
   const navigate = useNavigate();
   const handleDetail = () => {
     navigate(`/dashboard/detail-kuis`, {state : {id: idKuis}});
@@ -10,7 +10,7 @@ const CardKuis = ({idKuis,judul}) => {
 
   const handleDelete = async () => {
     await deleteKuis(idKuis);
-    navigate('/dashboard');
+    refresh((prev) => !prev);
   }
   return (
     <div className=" p-6 bg-white border border-gray-200 rounded-lg relative">
